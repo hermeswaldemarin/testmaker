@@ -1,0 +1,69 @@
+package br.com.dmarin.testmaker.persistence.service;
+
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.support.AnnotationConfigContextLoader;
+
+import br.com.dmarin.testmaker.IOperations;
+import br.com.dmarin.testmaker.config.PersistenceConfig;
+import br.com.dmarin.testmaker.model.QuestionGroup;
+import br.com.dmarin.testmaker.service.IQuestionGroupService;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = { PersistenceConfig.class }, loader = AnnotationConfigContextLoader.class)
+public class FooServicePersistenceIntegrationTest extends AbstractServicePersistenceIntegrationTest<QuestionGroup> {
+
+    @Autowired
+    private IQuestionGroupService service;
+
+    // tests
+
+    @Test
+    public final void whenContextIsBootstrapped_thenNoExceptions() {
+        //
+    }
+
+    @Test
+    public final void whenEntityIsCreated_thenNoExceptions() {
+        service.create(new QuestionGroup(randomAlphabetic(6)));
+    }
+
+    @Test(expected = DataIntegrityViolationException.class)
+    public final void whenInvalidEntityIsCreated_thenDataException() {
+        service.create(new QuestionGroup());
+    }
+
+    @Test(expected = DataIntegrityViolationException.class)
+    public final void whenEntityWithLongNameIsCreated_thenDataException() {
+        service.create(new QuestionGroup(randomAlphabetic(2048)));
+    }
+
+    // custom Query method
+
+    // work in progress
+
+    @Test(expected = InvalidDataAccessApiUsageException.class)
+    @Ignore("Right now, persist has saveOrUpdate semantics, so this will no longer fail")
+    public final void whenSameEntityIsCreatedTwice_thenDataException() {
+        final QuestionGroup entity = new QuestionGroup(randomAlphabetic(8));
+        service.create(entity);
+        service.create(entity);
+    }
+
+    // API
+
+    @Override
+    protected final IOperations<QuestionGroup> getApi() {
+        return service;
+    }
+
+}
