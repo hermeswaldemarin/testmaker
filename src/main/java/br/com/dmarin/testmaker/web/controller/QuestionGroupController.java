@@ -29,7 +29,7 @@ import br.com.dmarin.testmaker.web.util.RestPreconditions;
 import com.google.common.base.Preconditions;
 
 @Controller
-@RequestMapping(value = "/questionGroups")
+@RequestMapping(value = "/questiongroups")
 public class QuestionGroupController {
 
     @Autowired

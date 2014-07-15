@@ -56,7 +56,7 @@ public abstract class AbstractLiveTest<T extends Serializable> {
     //
 
     protected String getURL() {
-        return "http://localhost:8080/spring-security-rest-full/questionGroups";
+        return "http://localhost:8080/TestMaker/questiongroups";
     }
 
     protected final RequestSpecification givenAuth() {
