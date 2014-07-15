@@ -12,7 +12,7 @@ import org.hamcrest.core.AnyOf;
 import org.junit.Test;
 import org.springframework.http.MediaType;
 
-import br.com.dmarin.testmaker.model.QuestionGroup;
+import br.com.dmarin.testmaker.persistence.model.QuestionGroup;
 import br.com.dmarin.testmaker.web.util.HTTPLinkHeaderUtil;
 
 import com.google.common.net.HttpHeaders;

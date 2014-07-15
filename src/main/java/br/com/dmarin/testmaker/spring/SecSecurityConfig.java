@@ -1,4 +1,4 @@
-package br.com.dmarin.testmaker.config;
+package br.com.dmarin.testmaker.spring;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;

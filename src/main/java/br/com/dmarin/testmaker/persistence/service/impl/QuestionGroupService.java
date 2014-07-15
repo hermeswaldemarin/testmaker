@@ -1,4 +1,4 @@
-package br.com.dmarin.testmaker.service.impl;
+package br.com.dmarin.testmaker.persistence.service.impl;
 
 import java.util.List;
 
@@ -8,18 +8,19 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.dmarin.testmaker.dao.IQuestionGroupDAO;
-import br.com.dmarin.testmaker.model.QuestionGroup;
-import br.com.dmarin.testmaker.service.IQuestionGroupService;
-import br.com.dmarin.testmaker.service.common.AbstractService;
+import br.com.dmarin.testmaker.persistence.dao.IQuestionGroupDao;
+import br.com.dmarin.testmaker.persistence.model.QuestionGroup;
+import br.com.dmarin.testmaker.persistence.service.IQuestionGroupService;
+import br.com.dmarin.testmaker.persistence.service.common.AbstractService;
 
 import com.google.common.collect.Lists;
 
 @Service
+@Transactional
 public class QuestionGroupService extends AbstractService<QuestionGroup> implements IQuestionGroupService {
 
     @Autowired
-    private IQuestionGroupDAO dao;
+    private IQuestionGroupDao dao;
 
     public QuestionGroupService() {
         super();
@@ -34,6 +35,9 @@ public class QuestionGroupService extends AbstractService<QuestionGroup> impleme
 
     // custom methods
 
+    public QuestionGroup retrieveByName(final String name) {
+        return dao.retrieveByName(name);
+    }
 
     // overridden to be secured
 
@@ -43,6 +47,5 @@ public class QuestionGroupService extends AbstractService<QuestionGroup> impleme
     public List<QuestionGroup> findAll() {
         return Lists.newArrayList(getDao().findAll());
     }
-
 
 }

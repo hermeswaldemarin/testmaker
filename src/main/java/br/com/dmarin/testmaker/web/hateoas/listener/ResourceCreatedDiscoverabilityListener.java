@@ -16,6 +16,7 @@ import com.google.common.base.Preconditions;
 @Component
 class ResourceCreatedDiscoverabilityListener implements ApplicationListener<ResourceCreatedEvent> {
 
+    @Override
     public void onApplicationEvent(final ResourceCreatedEvent resourceCreatedEvent) {
         Preconditions.checkNotNull(resourceCreatedEvent);
 

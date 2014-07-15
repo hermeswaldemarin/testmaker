@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 
-import br.com.dmarin.testmaker.model.QuestionGroup;
+import br.com.dmarin.testmaker.persistence.model.QuestionGroup;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -28,6 +28,7 @@ public final class JacksonMarshaller implements IMarshaller {
 
     // API
 
+    @Override
     public final <T> String encode(final T resource) {
         Preconditions.checkNotNull(resource);
         String entityAsJSON = null;
@@ -44,6 +45,7 @@ public final class JacksonMarshaller implements IMarshaller {
         return entityAsJSON;
     }
 
+    @Override
     public final <T> T decode(final String resourceAsString, final Class<T> clazz) {
         Preconditions.checkNotNull(resourceAsString);
 
@@ -62,6 +64,7 @@ public final class JacksonMarshaller implements IMarshaller {
     }
 
     @SuppressWarnings("unchecked")
+    @Override
     public final <T> List<T> decodeList(final String resourcesAsString, final Class<T> clazz) {
         Preconditions.checkNotNull(resourcesAsString);
 
@@ -85,6 +88,7 @@ public final class JacksonMarshaller implements IMarshaller {
         return entities;
     }
 
+    @Override
     public final String getMime() {
         return MediaType.APPLICATION_JSON.toString();
     }

@@ -15,6 +15,7 @@ import com.google.common.net.HttpHeaders;
 @Component
 class SingleResourceRetrievedDiscoverabilityListener implements ApplicationListener<SingleResourceRetrievedEvent> {
 
+    @Override
     public void onApplicationEvent(final SingleResourceRetrievedEvent resourceRetrievedEvent) {
         Preconditions.checkNotNull(resourceRetrievedEvent);
 

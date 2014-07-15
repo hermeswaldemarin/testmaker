@@ -24,6 +24,7 @@ class PaginatedResultsRetrievedDiscoverabilityListener implements ApplicationLis
 
     // API
 
+    @Override
     public final void onApplicationEvent(final PaginatedResultsRetrievedEvent ev) {
         Preconditions.checkNotNull(ev);
 

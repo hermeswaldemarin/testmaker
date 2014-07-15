@@ -4,6 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
     http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-	<jpa:repositories base-package="br.com.dmarin.testmaker.dao" />
+	<jpa:repositories base-package="br.com.dmarin.testmaker.persistence.dao" />
 
 </beans>

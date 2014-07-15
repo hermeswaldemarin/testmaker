@@ -16,8 +16,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.dao.DataAccessException;
 
-import br.com.dmarin.testmaker.IOperations;
-import br.com.dmarin.testmaker.model.QuestionGroup;
+import br.com.dmarin.testmaker.persistence.IOperations;
+import br.com.dmarin.testmaker.persistence.model.QuestionGroup;
 import br.com.dmarin.testmaker.util.IDUtil;
 
 public abstract class AbstractServicePersistenceIntegrationTest<T extends Serializable> {

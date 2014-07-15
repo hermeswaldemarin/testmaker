@@ -19,6 +19,7 @@ public class TestMarshallerFactory implements FactoryBean<IMarshaller> {
 
     // API
 
+    @Override
     public IMarshaller getObject() {
         final String testMime = env.getProperty("test.mime");
         if (testMime != null) {
@@ -35,10 +36,12 @@ public class TestMarshallerFactory implements FactoryBean<IMarshaller> {
         return new JacksonMarshaller();
     }
 
+    @Override
     public Class<IMarshaller> getObjectType() {
         return IMarshaller.class;
     }
 
+    @Override
     public boolean isSingleton() {
         return true;
     }

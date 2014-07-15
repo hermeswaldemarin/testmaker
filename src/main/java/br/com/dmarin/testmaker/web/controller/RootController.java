@@ -30,9 +30,9 @@ public class RootController {
     public void adminRoot(final HttpServletRequest request, final HttpServletResponse response) {
         final String rootUri = request.getRequestURL().toString();
 
-        final URI fooUri = new UriTemplate("{rootUri}/{resource}").expand(rootUri, "foo");
-        final String linkToFoo = LinkUtil.createLinkHeader(fooUri.toASCIIString(), "collection");
-        response.addHeader("Link", linkToFoo);
+        final URI questionGroupUri = new UriTemplate("{rootUri}/{resource}").expand(rootUri, "questionGroup");
+        final String linkToQuestionGroup = LinkUtil.createLinkHeader(questionGroupUri.toASCIIString(), "collection");
+        response.addHeader("Link", linkToQuestionGroup);
     }
 
 }

@@ -1,4 +1,4 @@
-package br.com.dmarin.testmaker;
+package br.com.dmarin.testmaker.persistence;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 
 public interface IOperations<T extends Serializable> {
 
-	// read - one
+    // read - one
 
     T findOne(final long id);
 

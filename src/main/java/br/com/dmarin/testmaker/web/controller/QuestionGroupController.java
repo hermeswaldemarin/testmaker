@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.dmarin.testmaker.model.QuestionGroup;
-import br.com.dmarin.testmaker.service.IQuestionGroupService;
+import br.com.dmarin.testmaker.persistence.model.QuestionGroup;
+import br.com.dmarin.testmaker.persistence.service.IQuestionGroupService;
 import br.com.dmarin.testmaker.web.exception.MyResourceNotFoundException;
 import br.com.dmarin.testmaker.web.hateoas.event.PaginatedResultsRetrievedEvent;
 import br.com.dmarin.testmaker.web.hateoas.event.ResourceCreatedEvent;
@@ -29,7 +29,7 @@ import br.com.dmarin.testmaker.web.util.RestPreconditions;
 import com.google.common.base.Preconditions;
 
 @Controller
-@RequestMapping(value = "/foos")
+@RequestMapping(value = "/questionGroups")
 public class QuestionGroupController {
 
     @Autowired

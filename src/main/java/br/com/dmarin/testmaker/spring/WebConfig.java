@@ -1,4 +1,4 @@
-package br.com.dmarin.testmaker.config;
+package br.com.dmarin.testmaker.spring;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

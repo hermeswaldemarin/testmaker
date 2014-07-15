@@ -8,16 +8,16 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-import br.com.dmarin.testmaker.common.web.AbstractBasicLiveTest;
-import br.com.dmarin.testmaker.model.QuestionGroup;
+import br.com.dmarin.testmaker.common.web.AbstractDiscoverabilityLiveTest;
+import br.com.dmarin.testmaker.persistence.model.QuestionGroup;
 import br.com.dmarin.testmaker.spring.ConfigTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { ConfigTest.class }, loader = AnnotationConfigContextLoader.class)
 @ActiveProfiles("test")
-public class FooLiveTest extends AbstractBasicLiveTest<QuestionGroup> {
+public class QuestionGroupDiscoverabilityLiveTest extends AbstractDiscoverabilityLiveTest<QuestionGroup> {
 
-    public FooLiveTest() {
+    public QuestionGroupDiscoverabilityLiveTest() {
         super(QuestionGroup.class);
     }
 

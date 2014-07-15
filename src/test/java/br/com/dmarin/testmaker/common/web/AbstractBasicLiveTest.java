@@ -1,8 +1,8 @@
 package br.com.dmarin.testmaker.common.web;
 
+import static br.com.dmarin.testmaker.web.util.HTTPLinkHeaderUtil.extractURIByRel;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
-import static br.com.dmarin.testmaker.web.util.HTTPLinkHeaderUtil.extractURIByRel;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

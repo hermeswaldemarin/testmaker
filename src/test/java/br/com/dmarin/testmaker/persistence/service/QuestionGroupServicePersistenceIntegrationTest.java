@@ -13,14 +13,14 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-import br.com.dmarin.testmaker.IOperations;
-import br.com.dmarin.testmaker.config.PersistenceConfig;
-import br.com.dmarin.testmaker.model.QuestionGroup;
-import br.com.dmarin.testmaker.service.IQuestionGroupService;
+import br.com.dmarin.testmaker.persistence.IOperations;
+import br.com.dmarin.testmaker.persistence.model.QuestionGroup;
+import br.com.dmarin.testmaker.persistence.service.IQuestionGroupService;
+import br.com.dmarin.testmaker.spring.PersistenceConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { PersistenceConfig.class }, loader = AnnotationConfigContextLoader.class)
-public class FooServicePersistenceIntegrationTest extends AbstractServicePersistenceIntegrationTest<QuestionGroup> {
+public class QuestionGroupServicePersistenceIntegrationTest extends AbstractServicePersistenceIntegrationTest<QuestionGroup> {
 
     @Autowired
     private IQuestionGroupService service;
@@ -48,6 +48,15 @@ public class FooServicePersistenceIntegrationTest extends AbstractServicePersist
     }
 
     // custom Query method
+
+    @Test
+    public final void givenUsingCustomQuery_whenRetrievingEntity_thenFound() {
+        final String name = randomAlphabetic(6);
+        service.create(new QuestionGroup(name));
+
+        final QuestionGroup retrievedByName = service.retrieveByName(name);
+        assertNotNull(retrievedByName);
+    }
 
     // work in progress
 
