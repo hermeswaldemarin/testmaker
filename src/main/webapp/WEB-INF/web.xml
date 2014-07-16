@@ -4,7 +4,7 @@
       http://java.sun.com/xml/ns/javaee
       http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
 
-    <display-name>Spring Security REST Application</display-name>
+    <display-name>TestMaker</display-name>
 
     <!-- Spring root -->
     <context-param>
@@ -39,7 +39,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>api</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
 
     <!-- Spring Security -->

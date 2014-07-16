@@ -24,6 +24,8 @@ import br.com.dmarin.testmaker.web.exception.MyResourceNotFoundException;
 import br.com.dmarin.testmaker.web.hateoas.event.PaginatedResultsRetrievedEvent;
 import br.com.dmarin.testmaker.web.hateoas.event.ResourceCreatedEvent;
 import br.com.dmarin.testmaker.web.hateoas.event.SingleResourceRetrievedEvent;
+import br.com.dmarin.testmaker.web.util.ResponseDeleteObject;
+import br.com.dmarin.testmaker.web.util.ResponseRestObject;
 import br.com.dmarin.testmaker.web.util.RestPreconditions;
 
 import com.google.common.base.Preconditions;
@@ -63,27 +65,30 @@ public class QuestionGroupController {
         return service.findAll();
     }
 
-    @RequestMapping(params = { "page", "size" }, method = RequestMethod.GET)
+    @RequestMapping(params = { "page", "start", "limit" }, method = RequestMethod.GET)
     @ResponseBody
-    public List<QuestionGroup> findPaginated(@RequestParam("page") final int page, @RequestParam("size") final int size, final UriComponentsBuilder uriBuilder, final HttpServletResponse response) {
-        final Page<QuestionGroup> resultPage = service.findPaginated(page, size);
+    public ResponseRestObject<QuestionGroup> findPaginated(@RequestParam("page") final int page, @RequestParam("start") final int start, @RequestParam("limit") final int limit, final UriComponentsBuilder uriBuilder, final HttpServletResponse response) {
+        final Page<QuestionGroup> resultPage = service.findPaginated(page - 1, limit);
         if (page > resultPage.getTotalPages()) {
             throw new MyResourceNotFoundException();
         }
-        eventPublisher.publishEvent(new PaginatedResultsRetrievedEvent<QuestionGroup>(QuestionGroup.class, uriBuilder, response, page, resultPage.getTotalPages(), size));
+        eventPublisher.publishEvent(new PaginatedResultsRetrievedEvent<QuestionGroup>(QuestionGroup.class, uriBuilder, response, page, resultPage.getTotalPages(), limit));
 
-        return resultPage.getContent();
+        return new ResponseRestObject<QuestionGroup>(true, resultPage.getContent(), resultPage.getTotalElements());
     }
 
     // write
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody final QuestionGroup resource, final HttpServletResponse response) {
+    @ResponseBody
+    public ResponseRestObject<QuestionGroup> create(@RequestBody final QuestionGroup resource, final HttpServletResponse response) {
         Preconditions.checkNotNull(resource);
-        final Long idOfCreatedResource = service.create(resource).getId();
+        final QuestionGroup objCreated = service.create(resource);
+        final Long idOfCreatedResource = objCreated.getId();
 
         eventPublisher.publishEvent(new ResourceCreatedEvent(this, response, idOfCreatedResource));
+        return new ResponseRestObject<QuestionGroup>(true, objCreated);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
@@ -96,8 +101,10 @@ public class QuestionGroupController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void delete(@PathVariable("id") final Long id) {
+    @ResponseBody
+    public ResponseDeleteObject<QuestionGroup> delete(@PathVariable("id") final Long id) {
         service.deleteById(id);
+        return new ResponseDeleteObject<QuestionGroup>(true);
     }
 
 }

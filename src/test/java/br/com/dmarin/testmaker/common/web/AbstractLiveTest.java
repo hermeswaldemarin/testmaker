@@ -56,7 +56,7 @@ public abstract class AbstractLiveTest<T extends Serializable> {
     //
 
     protected String getURL() {
-        return "http://localhost:8080/TestMaker/questiongroups";
+        return "http://localhost:8080/TestMaker/rest/questiongroups";
     }
 
     protected final RequestSpecification givenAuth() {
