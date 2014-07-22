@@ -17,7 +17,7 @@ import com.google.common.collect.Lists;
 
 @Service
 @Transactional
-public class QuestionGroupService extends AbstractService<QuestionGroup> implements IQuestionGroupService {
+public class QuestionGroupService extends AbstractService<QuestionGroup, Long> implements IQuestionGroupService {
 
     @Autowired
     private IQuestionGroupDao dao;

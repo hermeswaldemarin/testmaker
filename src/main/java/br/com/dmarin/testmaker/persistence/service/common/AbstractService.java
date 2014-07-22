@@ -13,13 +13,13 @@ import br.com.dmarin.testmaker.persistence.IOperations;
 import com.google.common.collect.Lists;
 
 @Transactional
-public abstract class AbstractService<T extends Serializable> implements IOperations<T> {
+public abstract class AbstractService<T extends Serializable, ID extends Serializable> implements IOperations<T, ID> {
 
     // read - one
 
     @Override
     @Transactional(readOnly = true)
-    public T findOne(final long id) {
+    public T findOne(final ID id) {
         return getDao().findOne(id);
     }
 
@@ -54,10 +54,10 @@ public abstract class AbstractService<T extends Serializable> implements IOperat
     }
 
     @Override
-    public void deleteById(final long entityId) {
+    public void deleteById(final ID entityId) {
         getDao().delete(entityId);
     }
 
-    protected abstract PagingAndSortingRepository<T, Long> getDao();
+    protected abstract PagingAndSortingRepository<T, ID> getDao();
 
 }

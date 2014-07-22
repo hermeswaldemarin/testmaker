@@ -3,15 +3,20 @@ Ext.define('TestMaker.Application', {
 
     extend: 'Ext.app.Application',
 
+    requires: [
+        'TestMaker.view.MyViewport',
+        'TestMaker.view.questionGroup.Form',
+        'TestMaker.view.questionGroup.Grid'
+    ],
+
     views: [
-        'questionGroup.Grid', 'questionGroup.Form'
+        'MyViewport',
+        'questionGroup.Grid',
+        'questionGroup.Form'
     ],
 
     controllers: [
-        'QuestionGroup'
-    ],
-
-    stores: [
-        'QuestionGroup'
+        'QuestionGroup',
+        'Menu'
     ]
 });

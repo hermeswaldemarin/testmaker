@@ -5,11 +5,11 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 
-public interface IOperations<T extends Serializable> {
+public interface IOperations<T extends Serializable, ID  extends Serializable> {
 
     // read - one
 
-    T findOne(final long id);
+    T findOne(final ID id);
 
     // read - all
 
@@ -25,6 +25,6 @@ public interface IOperations<T extends Serializable> {
 
     void delete(final T entity);
 
-    void deleteById(final long entityId);
+    void deleteById(final ID entityId);
 
 }

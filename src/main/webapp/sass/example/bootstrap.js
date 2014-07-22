@@ -828,12 +828,18 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.Window"
   ],
   "TestMaker.Application": [],
-  "TestMaker.controller.Main": [],
+  "TestMaker.controller.Menu": [],
   "TestMaker.controller.QuestionGroup": [],
+  "TestMaker.model.MenuItem": [],
+  "TestMaker.model.MenuRoot": [],
   "TestMaker.model.QuestionGroup": [],
+  "TestMaker.store.Menu": [],
   "TestMaker.store.QuestionGroup": [],
   "TestMaker.view.Main": [],
-  "TestMaker.view.QuestionGroup": [],
+  "TestMaker.view.Menu": [],
+  "TestMaker.view.MenuItem": [],
+  "TestMaker.view.MyForm": [],
+  "TestMaker.view.MyViewport": [],
   "TestMaker.view.Viewport": [],
   "TestMaker.view.questionGroup.Form": [],
   "TestMaker.view.questionGroup.Grid": []
@@ -1824,15 +1830,27 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.window"
   ],
   "TestMaker.Application": [],
-  "TestMaker.controller.Main": [],
+  "TestMaker.controller.Menu": [],
   "TestMaker.controller.QuestionGroup": [],
+  "TestMaker.model.MenuItem": [],
+  "TestMaker.model.MenuRoot": [],
   "TestMaker.model.QuestionGroup": [],
+  "TestMaker.store.Menu": [],
   "TestMaker.store.QuestionGroup": [],
   "TestMaker.view.Main": [
     "widget.app-main"
   ],
-  "TestMaker.view.QuestionGroup": [
-    "widget.questiongrouplist"
+  "TestMaker.view.Menu": [
+    "widget.menu"
+  ],
+  "TestMaker.view.MenuItem": [
+    "widget.menuitem"
+  ],
+  "TestMaker.view.MyForm": [
+    "widget.myform"
+  ],
+  "TestMaker.view.MyViewport": [
+    "widget.myviewport"
   ],
   "TestMaker.view.Viewport": [],
   "TestMaker.view.questionGroup.Form": [
