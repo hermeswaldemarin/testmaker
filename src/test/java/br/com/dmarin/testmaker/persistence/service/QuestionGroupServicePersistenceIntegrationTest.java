@@ -71,7 +71,7 @@ public class QuestionGroupServicePersistenceIntegrationTest extends AbstractServ
     // API
 
     @Override
-    protected final IOperations<QuestionGroup> getApi() {
+    protected final IOperations<QuestionGroup, Long> getApi() {
         return service;
     }
 

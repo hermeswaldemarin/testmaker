@@ -239,7 +239,7 @@ public abstract class AbstractServicePersistenceIntegrationTest<T extends Serial
         return new QuestionGroup(randomAlphabetic(6));
     }
 
-    protected abstract IOperations<QuestionGroup> getApi();
+    protected abstract IOperations<QuestionGroup, Long> getApi();
 
     private final void invalidate(final QuestionGroup entity) {
         entity.setName(null);
