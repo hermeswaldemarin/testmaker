@@ -830,17 +830,22 @@ Ext.ClassManager.addNameAlternateMappings({
   "TestMaker.Application": [],
   "TestMaker.controller.Menu": [],
   "TestMaker.controller.QuestionGroup": [],
+  "TestMaker.controller.QuestionLevel": [],
   "TestMaker.model.MenuItem": [],
   "TestMaker.model.MenuRoot": [],
   "TestMaker.model.QuestionGroup": [],
+  "TestMaker.model.QuestionLevel": [],
   "TestMaker.store.Menu": [],
   "TestMaker.store.QuestionGroup": [],
+  "TestMaker.store.QuestionLevel": [],
   "TestMaker.view.Menu": [],
   "TestMaker.view.MenuItem": [],
   "TestMaker.view.MyViewport": [],
   "TestMaker.view.Viewport": [],
   "TestMaker.view.questionGroup.Form": [],
-  "TestMaker.view.questionGroup.Grid": []
+  "TestMaker.view.questionGroup.Grid": [],
+  "TestMaker.view.questionLevel.Form": [],
+  "TestMaker.view.questionLevel.Grid": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1830,11 +1835,14 @@ Ext.ClassManager.addNameAliasMappings({
   "TestMaker.Application": [],
   "TestMaker.controller.Menu": [],
   "TestMaker.controller.QuestionGroup": [],
+  "TestMaker.controller.QuestionLevel": [],
   "TestMaker.model.MenuItem": [],
   "TestMaker.model.MenuRoot": [],
   "TestMaker.model.QuestionGroup": [],
+  "TestMaker.model.QuestionLevel": [],
   "TestMaker.store.Menu": [],
   "TestMaker.store.QuestionGroup": [],
+  "TestMaker.store.QuestionLevel": [],
   "TestMaker.view.Menu": [
     "widget.menu"
   ],
@@ -1850,6 +1858,12 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "TestMaker.view.questionGroup.Grid": [
     "widget.questiongroupgrid"
+  ],
+  "TestMaker.view.questionLevel.Form": [
+    "widget.questionlevelform"
+  ],
+  "TestMaker.view.questionLevel.Grid": [
+    "widget.questionlevelgrid"
   ]
 });
 Ext.setVersion("ext-theme-base", "4.2.1");
